@@ -2,7 +2,6 @@
 
 #usage
 function usage {
-	echo
 	echo "USAGE: For MAN page use -m [help command]"
 	echo "$0 -u Username -p 'Password' -h Host -d Domain.com -f path_to_remotefile.txt"
 }
