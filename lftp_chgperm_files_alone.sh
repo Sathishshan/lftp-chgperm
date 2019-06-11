@@ -7,7 +7,7 @@ function usage {
 	echo "$0 -u Username -p 'Password' -h Host -d Domain.com -f path_to_remotefile.txt"
 }
 
-while getopts "u:p:h:d:f:m" opt; do
+while getopts ":u:p:h:d:f:m" opt; do
 	case "$opt" in
 		u )
 			FTPNAME=$OPTARG
@@ -25,9 +25,14 @@ while getopts "u:p:h:d:f:m" opt; do
 			REMOTE_FILE=$OPTARG
 			;;
 		m | *)
-		 usage
-		 exit
-		 ;;
+		 	usage
+		 	exit
+		 	;;
+		?)
+                        echo "I don't know what $OPTARG is !!!"
+                        usage
+                        exit 1
+			;;
 	esac
 done
 
@@ -41,7 +46,6 @@ else
 mkdir -p "${locpath}"
 
 #Passing Arguments
-
 
 # Creating lftp_runner
 echo "
