@@ -52,8 +52,6 @@ set ftp:ssl-allow no
 open $HOST
 user $FTPNAME \"$FTPPASS\"" > "${locpath}/lftp_runner.txt"
 
-#/opt/cww/${Domain}/cwwout/lftp_runner.txt
-
 cat "$REMOTE_FILE" 2> /dev/null | while read line
 do
 echo "chmod 644 ${line}" >> "${locpath}/lftp_runner.txt"
