@@ -34,16 +34,6 @@ while getopts ":u:p:h:d:f:m" opt; do
 			;;
 	esac
 done
-
-locpath="/home/sathish/Downloads/${DOMAIN}/out"
-dom="/home/sathish/Downloads/${DOMAIN}"
-
-if [ -d "${dom}" ]; then
-	echo "The Domain name already exist!"
-	exit 1
-else
-mkdir -p "${locpath}"
-
 #Passing Arguments
 
 # Creating lftp_runner
@@ -55,15 +45,13 @@ set ftp:passive-mode true
 set ftp:list-options -a
 
 open $HOST
-user $FTPNAME \"$FTPPASS\"" > "${locpath}/lftp_runner.txt"
+user $FTPNAME \"$FTPPASS\"" > lftp_runner.txt
 
 cat "$REMOTE_FILE" 2> /dev/null | while read line
 do
-echo "chmod 644 ${line}" >> "${locpath}/lftp_runner.txt"
+echo "chmod 644 ${line}" >> lftp_runner.txt
 done
-cd "${dom}"
 # Executing lftp runner
 
-lftp -f "${locpath}/lftp_runner.txt"
+lftp -f lftp_runner.txt
 echo "Remote File Permission has been changed, Successfully!"
-fi
