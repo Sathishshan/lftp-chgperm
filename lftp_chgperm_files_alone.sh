@@ -6,7 +6,7 @@ function usage {
 	echo "$0 -u Username -p 'Password' -h Host -f path_to_remotefile.txt"
 }
 
-while getopts ":u:p:h:d:f:m" opt; do
+while getopts ":u:p:h:f:m" opt; do
 	case "$opt" in
 		u )
 			FTPNAME=$OPTARG
