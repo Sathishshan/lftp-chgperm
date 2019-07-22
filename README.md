@@ -1,4 +1,4 @@
-### lftp_chgperm_files_alone | Change  permission  mask  on remote files.
+### lftp--chgperm--files--alone | Change  permission  mask  on remote files.
 
 #### Script USAGE: 
 "For MAN page use -m [help command]"  
